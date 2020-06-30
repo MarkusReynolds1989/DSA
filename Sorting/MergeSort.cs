@@ -8,9 +8,9 @@ namespace DSA.Sorting
         public int[] Merge(int[] array)
         {
             // First slice goes up to half.
-            var half1 = array[Range.EndAt(array.Length/2)];
+            var half1 = array[..(array.Length/2)];
             // Second slice goes from half to the end.
-            var half2 = array[Range.StartAt(array.Length/2 + 1)];
+            var half2 = array[(array.Length/2 + 1)..];
             // Sort both of them.
             var sorted1 = Sort(half1,0);
             var sorted2 = Sort(half2, 0);
