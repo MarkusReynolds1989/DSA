@@ -20,7 +20,8 @@ namespace DSA.Sorting
             return Merge(sorted1, sorted2);
         }
 
-        public static int[] Merge(int[] array1
+        public static int[] Merge(
+            int[] array1
             , int[] array2
             , int lPos = 0
             , int rPos = 0
@@ -28,6 +29,7 @@ namespace DSA.Sorting
             , int[] sorted = default
         )
         {
+            // Assign sorted if it isn't assigned yet. Basically a default.
             sorted ??= new int[array1.Length + array2.Length];
 
             // If there are no more elements in either array
@@ -36,28 +38,50 @@ namespace DSA.Sorting
                 return sorted;
             }
 
-            if (array1[lPos] < array2[rPos])
+            // Sorted always gets the lessor of the two first.
+            // If array1's ele is less than array2's ele
+            if (lPos > array1.Length - 1)
+            {
+                sorted[count] = array2[rPos];
+                rPos++;
+            }
+            else if (rPos > array2.Length - 1)
             {
                 sorted[count] = array1[lPos];
-                if (lPos < array1.Length - 1)
-                {
-                    lPos += 1;
-                }
+                lPos++;
             }
             else
             {
-                sorted[count] = array2[rPos];
-                if (rPos < array2.Length - 1)
+                if (array1[lPos] == array2[rPos])
                 {
-                    rPos += 1;
+                    sorted[count] = array1[lPos];
+                    lPos++;
+                }
+                else if (array1[lPos] < array2[rPos])
+                {
+                    // Sorted gets array1's element
+                    sorted[count] = array1[lPos];
+                    // Increment array1's element
+                    lPos++;
+                }
+                else if (array1[lPos] > array2[rPos])
+                {
+                    sorted[count] = array2[rPos];
+                    rPos++;
                 }
             }
 
-            return Merge(array1, array2, lPos, rPos, count + 1, sorted);
+            return Merge(
+                array1
+                , array2
+                , lPos
+                , rPos
+                , count + 1
+                , sorted);
         }
 
         // Destructive sort.
-        public static int[] Sort(int[] array, int count)
+        public static int[] Sort(int[] array, int count = 0)
         {
             if (count >= array.Length - 1)
             {

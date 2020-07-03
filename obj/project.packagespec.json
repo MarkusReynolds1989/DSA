@@ -1,11 +1,14 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "/home/markus/Code/C#/DSA/DSA.csproj",
+    "projectUniqueName": "C:\\Users\\MR071411\\Home\\Code\\CSharp\\DSA\\DSA.csproj",
     "projectName": "DSA",
-    "projectPath": "/home/markus/Code/C#/DSA/DSA.csproj",
-    "outputPath": "/home/markus/Code/C#/DSA/obj/",
+    "projectPath": "C:\\Users\\MR071411\\Home\\Code\\CSharp\\DSA\\DSA.csproj",
+    "outputPath": "C:\\Users\\MR071411\\Home\\Code\\CSharp\\DSA\\obj\\",
     "projectStyle": "PackageReference",
+    "fallbackFolders": [
+      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+    ],
     "originalTargetFrameworks": [
       "netcoreapp3.1"
     ],
@@ -40,7 +43,7 @@
           "privateAssets": "all"
         }
       },
-      "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.103/RuntimeIdentifierGraph.json"
+      "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
     }
   }
 }
