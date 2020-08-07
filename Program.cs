@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO.Compression;
 using System.Linq;
 using System.Text.RegularExpressions;
 using DSA.Sorting;
@@ -11,24 +12,20 @@ namespace DSA
     {
         public static void Main(string[] args)
         {
-            Stopwatch timer = new Stopwatch();
-            Random random = new Random();
-
-            int[] items = new int[9500];
-            foreach (var item in Enumerable.Range(0, 9500))
+            var rand = new Random(System.DateTime.Now.Millisecond);
+            var vec = new Vector<int>(10);
+            Console.WriteLine("Contents:");
+            for (var i = 0; i < vec.Total; i++)
             {
-                items[item] = random.Next(0, 999);
+                vec.Add(rand.Next(0,100));
             }
-
-            timer.Start();
-            var test = MergeSort.FnMerge(items);
-            timer.Stop();
-            Console.WriteLine($"MergeSort took {timer.Elapsed.Milliseconds}ms or {timer.Elapsed.Seconds}s");
-            timer.Reset();
-            timer.Start();
-            var test2 = MergeSort.Sort(items);
-            timer.Stop();
-            Console.WriteLine($"Sort took {timer.Elapsed.Milliseconds}ms or {timer.Elapsed.Seconds}s");
+            
+            for(var i = 0; i < vec.Total; i++) 
+            {
+                Console.WriteLine(vec.Get(i));
+            }
+            Console.WriteLine($"Total Size:{vec.Total}");
+            Console.Write($"Index: {vec.Index}");
         }
     }
 }
